@@ -7,6 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
+
 public class Category {
 	
 	@Id
