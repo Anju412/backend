@@ -42,7 +42,8 @@ public class ProductDAOImpl implements ProductDAO {
 
 	public boolean updateProduct(Product product) {
 		try{
-			sessionFactory.getCurrentSession().update(product);
+			System.out.println("we are update product of daoimpl");
+			sessionFactory.getCurrentSession().saveOrUpdate(product);
 			return true;
 		}
 		catch(Exception e)
@@ -70,9 +71,8 @@ public class ProductDAOImpl implements ProductDAO {
 		{
 			Session session=sessionFactory.openSession();
 		    Query query=session.createQuery("from Product");
-			List<Product> listProduct=query.list();
-			session.close();
- 		    return listProducts();
+			List<Product> listProducts=query.list();
+ 		    return listProducts;
 		}
 		catch(Exception e)
 		{
@@ -87,7 +87,6 @@ public class ProductDAOImpl implements ProductDAO {
 		    Query query=session.createQuery("from Product where ctegoryId=:catid");
 		    query.setParameter("catid",categoryId);
 			List<Product> listProducts=query.list();
-			session.close();
  		    return listProducts();
 		}
 		catch(Exception e)

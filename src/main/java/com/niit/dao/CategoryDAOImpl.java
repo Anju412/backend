@@ -69,6 +69,7 @@ public class CategoryDAOImpl implements CategoryDAO
 	{
 		try
 		{
+			System.out.println("we are in list categories method of daoimpl");
 			Session session=sessionFactory.getCurrentSession();
 		    Query query=session.createQuery("from Category");
 			List<Category> listCategories=query.list();
